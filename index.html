@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación Especial</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: pink;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .btn {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #noBtn {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>¿Quieres ser mi San Valentín? 💖</h2>
+        <button class="btn" onclick="decirSi()">Sí 💘</button>
+        <button class="btn" id="noBtn" onmouseover="moverNo()">No 💔</button>
+        <p id="respuesta" style="font-size: 20px;"></p>
+    </div>
+    
+    <script>
+        function decirSi() {
+            document.getElementById("respuesta").innerText = "¡Sabía que dirías que sí! 💖";
+            document.getElementById("noBtn").style.display = "none";
+        }
+
+        function moverNo() {
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            document.getElementById("noBtn").style.left = `${x}px`;
+            document.getElementById("noBtn").style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
