@@ -13,37 +13,59 @@
         .container {
             margin-top: 50px;
         }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px; /* Espacio entre los botones */
+            margin-top: 20px;
+            position: relative;
+        }
         .btn {
             font-size: 18px;
             padding: 10px 20px;
-            margin: 10px;
             cursor: pointer;
         }
         #noBtn {
             position: absolute;
         }
+        #gif-respuesta {
+            display: none; /* Oculto por defecto */
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>¿Quieres ser mi San Valentín? 💖</h2>
-        <button class="btn" onclick="decirSi()">Sí 💘</button>
-        <button class="btn" id="noBtn" onmouseover="moverNo()">No 💔</button>
+        <h2>¿Quieres ser mi San Valentín Burrita? 💖</h2>
+        <img src="https://media1.tenor.com/m/_YAb7kOk_88AAAAd/happy-birthday.gif" alt="Gif pregunta" width="250">
+        
+        <div class="btn-container">
+            <button class="btn" onclick="decirSi()">Sí 💘</button>
+        </div>
+        <div class="btn-container">
+            <button class="btn" id="noBtn" onmouseover="moverNo()">Ya kisieras ke no 💔</button>
+        </div>
+
         <p id="respuesta" style="font-size: 20px;"></p>
+        <div id="gif-respuesta">
+            <img src="https://media1.tenor.com/m/cZep90gIRu4AAAAC/ronaldo.gif" alt="Gif de respuesta" width="250">
+        </div>
     </div>
-    
+
     <script>
         function decirSi() {
-            document.getElementById("respuesta").innerText = "¡Sabía que dirías que sí! 💖";
-            document.getElementById("noBtn").style.display = "none";
+            document.getElementById("respuesta").innerText = "¡Menos mal :), nose si estare el 14 pero igual salimos despues 😭😭! 💖";
+            document.getElementById("gif-respuesta").style.display = "block";
         }
 
         function moverNo() {
             let x = Math.random() * (window.innerWidth - 100);
             let y = Math.random() * (window.innerHeight - 50);
-            document.getElementById("noBtn").style.left = `${x}px`;
-            document.getElementById("noBtn").style.top = `${y}px`;
+            document.getElementById("noBtn").style.left = x + "px";
+            document.getElementById("noBtn").style.top = y + "px";
         }
     </script>
 </body>
 </html>
+
+
