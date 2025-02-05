@@ -7,7 +7,7 @@
     <style>
         body {
             text-align: center;
-            background-color: pink;
+            background-color: rgb(243, 27, 63);
             font-family: Arial, sans-serif;
         }
         .container {
@@ -26,7 +26,8 @@
             cursor: pointer;
         }
         #noBtn {
-            position: absolute;
+            position: relative;
+            transition: 0.3s ease-in-out; /* Suaviza el movimiento */
         }
         #gif-respuesta {
             display: none; /* Oculto por defecto */
@@ -41,9 +42,7 @@
         
         <div class="btn-container">
             <button class="btn" onclick="decirSi()">Sí 💘</button>
-        </div>
-        <div class="btn-container">
-            <button class="btn" id="noBtn" onmouseover="moverNo()">Ya kisieras ke no 💔</button>
+            <button class="btn" id="noBtn" onmouseover="moverNo()">Ya kisieras que no  💔</button>
         </div>
 
         <p id="respuesta" style="font-size: 20px;"></p>
@@ -54,18 +53,28 @@
 
     <script>
         function decirSi() {
-            document.getElementById("respuesta").innerText = "¡Menos mal :), nose si estare el 14 pero igual salimos despues 😭😭! 💖";
-            document.getElementById("gif-respuesta").style.display = "block";
-        }
+    document.getElementById("respuesta").innerText = "¡Menos mal burra :), nose si llegue el 14 pero salimos despues ya? TE KIERO MUCHO 😭😭! 💖";
+    document.getElementById("gif-respuesta").style.display = "block";
+    
+    // Ocultar ambos botones
+    document.getElementsByClassName("btn")[0].style.display = "none"; // Botón "Sí"
+    document.getElementById("noBtn").style.display = "none"; // Botón "No"
+}
+
 
         function moverNo() {
-            let x = Math.random() * (window.innerWidth - 100);
-            let y = Math.random() * (window.innerHeight - 50);
-            document.getElementById("noBtn").style.left = x + "px";
-            document.getElementById("noBtn").style.top = y + "px";
+            let noBtn = document.getElementById("noBtn");
+
+            // Definir un rango de movimiento un poco más grande (máx. 150px en cualquier dirección)
+            let offsetX = (Math.random() * 400 - 250); // Movimiento de -75px a 75px
+            let offsetY = (Math.random() * 400 - 250); 
+
+            // Aplicar el movimiento limitado
+            noBtn.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
         }
     </script>
 </body>
 </html>
+
 
 
